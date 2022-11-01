@@ -1,0 +1,10 @@
+.dockerignore
+Dockerfile
+node_modules/
+# .env
+.git
+.gitignore
+README.md
+A.cpp
+a.out
+output.txt
