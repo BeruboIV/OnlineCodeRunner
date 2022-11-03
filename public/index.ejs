@@ -8,14 +8,26 @@
         <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
-        <form action="/non_interactive" method="POST">
+        <form action="/non_interactive" method="POST" id="form">
             <div class="btn">
                 <button type="submit" id="play-btn">RUN</button>
             </div>
-            <textarea name="code" id="code" rows="20"><%= code %></textarea>
+            <div class="container">
+                <!-- ACE Editor -->
+                <div id="editor"><%= code %></div>
+            </div>
             <br />
             <textarea name="output" id="output" rows="10"><%= output %></textarea>
+            <!-- Pseudo Element to transfer text from "editor" to POST request -->
+            <!-- The element will be invisible and will only act as a bridge -->
+            <textarea name="code" id="code" cols="0" rows="0"></textarea>
         </form>
     </body>
-    <script type="module" src="./scripts/tab_indent.js"></script>
+    <script src="./scripts/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit("editor");
+        // editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/c_cpp");
+    </script>
+    <script src="./utils/send_data.js"></script>
 </html>

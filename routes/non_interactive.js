@@ -6,7 +6,6 @@ const MAIN_FILE = "A.cpp";
 
 router.post("/", (req, res) => {
     const { code } = req.body;
-    console.log(code);
     try {
         fs.writeFileSync(MAIN_FILE, code);
     } catch (error) {
@@ -16,14 +15,11 @@ router.post("/", (req, res) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return res.render("index.ejs", { code: code, output: error.message });
-            // return;
         }
-
         if (stderr) {
             console.log(`stderr: ${stderr}`);
             return res.render("index.ejs", { code: code, output: stderr });
         }
-
         console.log(`stdout:\n${stdout}`);
         return res.render("index.ejs", { code: code, output: stdout });
     });
