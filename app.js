@@ -14,7 +14,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "public"));
 
 app.get("/", (req, res) => {
-    return res.render("index.ejs", { code: "", output: "" });
+    return res.render("index.ejs", { code: "", output: "", input: "" });
 });
 
 app.use("/non_interactive", nonInteractiveRoute);

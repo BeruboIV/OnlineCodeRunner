@@ -11,8 +11,10 @@
         <form action="/non_interactive" method="POST" id="form">
             <div class="btn">
                 <button type="submit" id="play-btn">RUN</button>
+                <button type="button" id="hide_show_input-btn">TEXT INPUT</button>
             </div>
             <div class="container">
+                <textarea name="input" id="input"><%= input %></textarea>
                 <!-- ACE Editor -->
                 <div id="editor"><%= code %></div>
             </div>
@@ -30,4 +32,5 @@
         editor.session.setMode("ace/mode/c_cpp");
     </script>
     <script src="./utils/send_data.js"></script>
+    <script src="./utils/show_hide_input.js"></script>
 </html>
