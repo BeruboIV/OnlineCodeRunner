@@ -6,11 +6,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>C++ Code Runner</title>
         <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="/xterm.css" />
+        <script src="/xterm.js"></script>
+        <script src="/xterm-addon-fit.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+
+        <!-- Utils -->
+        <script src="./utils/send_data.js"></script>
+        <script src="./utils/show_hide_input.js"></script>
+        <script src="./utils/mode_select.js"></script>
+        <script src="./utils/socket_client.js"></script>
     </head>
     <body>
-        <form action="/non_interactive" method="POST" id="form">
+        <form action="/" method="POST" id="form">
             <div class="btn">
                 <button type="submit" id="play-btn">RUN</button>
+                <select name="mode" id="mode">
+                    <option value="<%= mode %>" selected disabled hidden><%= mode %></option>
+                    <option value="Non-Interactive">Non-Interactive</option>
+                    <option value="Interactivez">Interactive</option>
+                </select>
                 <button type="button" id="hide_show_input-btn">TEXT INPUT</button>
             </div>
             <div class="container">
@@ -23,14 +38,14 @@
             <!-- Pseudo Element to transfer text from "editor" to POST request -->
             <!-- The element will be invisible and will only act as a bridge -->
             <textarea name="code" id="code" cols="0" rows="0"></textarea>
+            <div id="terminal-container"></div>
         </form>
     </body>
+    <!-- ACE Editor -->
     <script src="./scripts/ace.js" type="text/javascript" charset="utf-8"></script>
     <script>
         var editor = ace.edit("editor");
         // editor.setTheme("ace/theme/monokai");
         editor.session.setMode("ace/mode/c_cpp");
     </script>
-    <script src="./utils/send_data.js"></script>
-    <script src="./utils/show_hide_input.js"></script>
 </html>
