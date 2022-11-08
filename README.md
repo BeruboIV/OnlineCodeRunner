@@ -5,11 +5,11 @@
 ```
 git clone https://github.com/BeruboIV/OnlineCodeRunner
 cd OnlineCodeRunner
-docker build -t online_code_runner:1
-docker run -p 3000:3000 online_code_runner:1
+Set up the .env file
+node app.js
 ```
 
 ## Bugs
 
 1. Only supports c++
-2. Interactive input cannot be taken from the user
+2. Docker is not supported for now
