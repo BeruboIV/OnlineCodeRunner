@@ -1,15 +1,13 @@
 # OnlineCodeRunner
 
+This is an online C++ code editor.
+
 ## Installation
 
 ```
 git clone https://github.com/BeruboIV/OnlineCodeRunner
 cd OnlineCodeRunner
 Set up the .env file
-node app.js
+docker build -t online_code_runner:1
+docker run -p 3000:3000 online_code_runner:1
 ```
-
-## Bugs
-
-1. Only supports c++
-2. Docker is not supported for now
