@@ -72,7 +72,7 @@ io.on("connection", function (socket) {
         });
     })
         .on("keyboard-interactive", (name, instructions, instructionsLang, prompts, finish) => {
-            finish(["06512252703"]);
+            finish([process.env.SSH_PASSWORD]);
         })
         .on("close", function () {
             socket.emit("data", "\r\n*** SSH CONNECTION CLOSED ***\r\n");
